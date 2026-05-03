@@ -12,13 +12,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@wieslawsoltes">
 <meta name="twitter:title" content="Svg Control and SvgImage | Svg.Skia">
-<meta name="twitter:description" content="Svg Control and SvgImage Svg control The Svg control is the simplest way to render an SVG in XAML: &lt;svg:Svg Path=&quot;/Assets/__tiger.svg&quot; /> Common properties include: Path Source Stretch StretchDirection The Skia-backed control also adds: EnableCache Wireframe DisableFilters Zoom PanX PanY ZoomToPoint(...) That makes it a better fit when you need interaction or viewport behavior. SvgImage Use SvgImage when the target property expects IImage, for example on an Avalonia...">
+<meta name="twitter:description" content="Svg Control and SvgImage Svg control The Svg control is the simplest way to render an SVG in XAML: &lt;svg:Svg Path=&quot;/Assets/__tiger.svg&quot; /> Common properties include: Path Source Stretch StretchDirection The Skia-backed control also adds: EnableCache Wireframe DisableFilters Zoom PanX PanY ZoomToPoint(...) Interaction AnimationBackend AnimationFrameInterval AnimationPlaybackRate ActualAnimationBackend AnimationBackendFallbackReason That makes it a better fit when you need interaction or viewport behavior. For animated SVG, use the host playback properties directly on...">
 <meta name="twitter:image" content="https://wieslawsoltes.github.io/Svg.Skia/images/demo.png">
 <meta name="twitter:image:alt" content="Svg Control and SvgImage | Svg.Skia">
 <meta property="og:title" content="Svg Control and SvgImage | Svg.Skia">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://wieslawsoltes.github.io/Svg.Skia">
-<meta property="og:description" content="Svg Control and SvgImage Svg control The Svg control is the simplest way to render an SVG in XAML: &lt;svg:Svg Path=&quot;/Assets/__tiger.svg&quot; /> Common properties include: Path Source Stretch StretchDirection The Skia-backed control also adds: EnableCache Wireframe DisableFilters Zoom PanX PanY ZoomToPoint(...) That makes it a better fit when you need interaction or viewport behavior. SvgImage Use SvgImage when the target property expects IImage, for example on an Avalonia...">
+<meta property="og:description" content="Svg Control and SvgImage Svg control The Svg control is the simplest way to render an SVG in XAML: &lt;svg:Svg Path=&quot;/Assets/__tiger.svg&quot; /> Common properties include: Path Source Stretch StretchDirection The Skia-backed control also adds: EnableCache Wireframe DisableFilters Zoom PanX PanY ZoomToPoint(...) Interaction AnimationBackend AnimationFrameInterval AnimationPlaybackRate ActualAnimationBackend AnimationBackendFallbackReason That makes it a better fit when you need interaction or viewport behavior. For animated SVG, use the host playback properties directly on...">
 <meta property="og:image" content="https://wieslawsoltes.github.io/Svg.Skia/images/demo.png">
 <meta property="og:image:alt" content="Svg Control and SvgImage | Svg.Skia">
   </head>
@@ -98,23 +98,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#docs-sidebar-menu" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <ol id='menu-id-xaml-0' class='menu menu-level0 show '>
-            <li id='menu-item-xaml-1' class='menu-item '>
-              <span class='menu-item-row'><a href='/Svg.Skia/articles/xaml/' class='menu-link  '>XAML Usage</a></span>  </li>
-            <li id='menu-item-xaml-2' class='menu-item '>
-              <span class='menu-item-row'><a href='/Svg.Skia/articles/xaml/overview/' class='menu-link  '>Overview</a></span>  </li>
-            <li id='menu-item-xaml-3' class='menu-item '>
-              <span class='menu-item-row'><a href='/Svg.Skia/articles/xaml/uno-svg-control/' class='menu-link  '>Uno Svg Control</a></span>  </li>
-            <li id='menu-item-xaml-4' class='menu-item  active'>
-              <span class='menu-item-row'><a href='/Svg.Skia/articles/xaml/svg-control-and-svgimage/' class='menu-link  '>Svg Control and SvgImage</a></span>  </li>
-            <li id='menu-item-xaml-5' class='menu-item '>
-              <span class='menu-item-row'><a href='/Svg.Skia/articles/xaml/svgresource-and-brushes/' class='menu-link  '>SvgResource and Brushes</a></span>  </li>
-            <li id='menu-item-xaml-6' class='menu-item '>
-              <span class='menu-item-row'><a href='/Svg.Skia/articles/xaml/styling-and-previewer/' class='menu-link  '>Styling and Previewer</a></span>  </li>
-            <li id='menu-item-xaml-7' class='menu-item '>
-              <span class='menu-item-row'><a href='/Svg.Skia/articles/xaml/skia-controls-and-skpictureimage/' class='menu-link  '>Skia Controls and SKPictureImage</a></span>  </li>
-          </ol>
-
+          <div class='lunet-menu-async' data-lunet-menu-partial='/Svg.Skia/partials/menus/menu-xaml.8d271fe1103bfd7f0bee7ffa12a78186.html' data-lunet-menu-open='menu-id-xaml-0' data-lunet-menu-active='menu-item-xaml-4,menu-item-xaml-0'><div class='menu-loading text-body-secondary small'>Loading menu…</div></div>
         </div>
       </nav>
       <!-- Right sidebar (TOC) - collapsible on mobile, visible sidebar on xxl+ -->
@@ -180,8 +164,21 @@
 <li><code>PanX</code></li>
 <li><code>PanY</code></li>
 <li><code>ZoomToPoint(...)</code></li>
+<li><code>Interaction</code></li>
+<li><code>AnimationBackend</code></li>
+<li><code>AnimationFrameInterval</code></li>
+<li><code>AnimationPlaybackRate</code></li>
+<li><code>ActualAnimationBackend</code></li>
+<li><code>AnimationBackendFallbackReason</code></li>
 </ul>
 <p>That makes it a better fit when you need interaction or viewport behavior.</p>
+<p>For animated SVG, use the host playback properties directly on the control:</p>
+<pre><code class="language-xml">&lt;svg:Svg Path=&quot;/Assets/animated.svg&quot;
+         AnimationBackend=&quot;Default&quot;
+         AnimationPlaybackRate=&quot;1&quot;
+         AnimationFrameInterval=&quot;0:0:0.016&quot; /&gt;
+</code></pre>
+<p>On Avalonia, <code>Default</code> prefers the retained <code>NativeComposition</code> path when it is supported by both the host and the loaded SVG scene.</p>
 <h2 id="svgimage"><code>SvgImage</code></h2>
 <p>Use <code>SvgImage</code> when the target property expects <code>IImage</code>, for example on an Avalonia <code>Image</code> control:</p>
 <pre><code class="language-xml">&lt;Image Source=&quot;{SvgImage /Assets/__AJ_Digital_Camera.svg}&quot; /&gt;
@@ -206,6 +203,7 @@
 <pre><code class="language-csharp">var hits = svgControl.HitTestElements(new Point(x, y));
 </code></pre>
 <p>That method accepts control coordinates, not picture coordinates.</p>
+<p>For routed pointer events and animation playback details, see <a href="/Svg.Skia/articles/guides/interaction-and-animation">Interaction and Animation</a>.</p>
 
       </div>
   </div>
